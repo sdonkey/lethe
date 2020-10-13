@@ -1,0 +1,19 @@
+{
+    "name": "lethe/lethe",
+    "description": "PHP Framework",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "wangjr",
+            "email": "wangjr129@163.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Lethe\\": "src/"
+        }
+    }
+}
