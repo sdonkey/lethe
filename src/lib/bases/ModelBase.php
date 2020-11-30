@@ -2,7 +2,8 @@
 namespace Lethe\Lib\Bases;
 
 use Illuminate\Database\Eloquent\Model;
-use db\QueryBuilder;
+use Lethe\Lib\DB\QueryBuilder;
+
 
 class ModelBase extends Model
 {
@@ -68,7 +69,6 @@ class ModelBase extends Model
         $conn = $this->getConnection();
 
         $grammar = $conn->getQueryGrammar();
-
         $queryBuilder = new QueryBuilder(
             $conn,
             $grammar,

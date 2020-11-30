@@ -13,7 +13,15 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Lethe\\": "src/"
+            "Lethe\\": "src/",
+            "Lethe\\Lib\\": "src/lib",
+            "Lethe\\Lib\\Bases\\": "src/lib/bases",
+            "Lethe\\Lib\\Cache": "src/lib/cache",
+            "Lethe\\Lib\\DB\\": "src/lib/db",
+            "Lethe\\Lib\\DB\\Cache\\": "src/lib/db",
+            "Lethe\\Lib\\Hook\\": "src/lib/hook",
+            "Lethe\\Lib\\Queue\\": "src/lib/queue",
+            "Lethe\\Lib\\Session\\Driver\\": "src/lib/session/driver"
         }
     }
 }
