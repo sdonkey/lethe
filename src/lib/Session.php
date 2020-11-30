@@ -85,7 +85,7 @@ class Session
         }
         if (!empty($config['type'])) {
             // 读取session驱动
-            $class = false !== strpos($config['type'], '_') ? $config['type'] : '\session\driver\\'.ucwords($config['type']).'Driver';
+            $class = false !== strpos($config['type'], '_') ? $config['type'] : 'Lethe\Lib\Session\Driver\\'.ucwords($config['type']).'Driver';
             // 检查驱动类
             if (!class_exists($class) || !session_set_save_handler(new $class($config))) {
                 //throw new Exception('error session handler:' . $class, $class);
