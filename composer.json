@@ -16,7 +16,7 @@
             "Lethe\\": "src/",
             "Lethe\\Lib\\": "src/lib",
             "Lethe\\Lib\\Bases\\": "src/lib/bases",
-            "Lethe\\Lib\\Cache": "src/lib/cache",
+            "Lethe\\Lib\\Cache\\": "src/lib/cache",
             "Lethe\\Lib\\DB\\": "src/lib/db",
             "Lethe\\Lib\\DB\\Cache\\": "src/lib/db",
             "Lethe\\Lib\\Hook\\": "src/lib/hook",
