@@ -23,5 +23,13 @@
             "Lethe\\Lib\\Queue\\": "src/lib/queue",
             "Lethe\\Lib\\Session\\Driver\\": "src/lib/session/driver"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "find vendor -type d -name .git -exec rm -rf '{}' \\;"
+        ],
+        "post-update-cmd": [
+            "find vendor -type d -name .git -exec rm -rf '{}' \\;"
+        ]
     }
 }
