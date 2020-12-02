@@ -36,7 +36,7 @@ class Queue
         $queue = null;
         switch ($driver) {
             case 'redis':
-                $queue = new \queue\RedisQueue($handle);
+                $queue = new RedisQueue($handle);
                 break;
             default:
                 throw new Exception('Queue driver empty');

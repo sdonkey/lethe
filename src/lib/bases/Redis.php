@@ -6,6 +6,8 @@
  */
 namespace Lethe\Lib\Bases;
 
+use Lethe\Lib\Config;
+
 class Redis
 {
     /**
@@ -30,7 +32,7 @@ class Redis
      */
     private static function connect($select_db = 0)
     {
-        $config = \Config::get('redis');
+        $config = Config::get('redis');
 
         $redis = new \Redis();
         $redis->connect($config['host'], $config['port']);

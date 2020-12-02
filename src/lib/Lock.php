@@ -8,6 +8,8 @@ namespace Lethe\Lib;
  * @copyright Copyright 2018-2023 © wangjr129@163.com All rights reserved.
  * *********************************************************** */
 
+use Lethe\Lib\Bases\Redis;
+
 class Lock
 {
     /**
@@ -19,8 +21,8 @@ class Lock
 
     public function __construct()
     {
-        $config = \Config::get('redis');
-        $this->useCache = \bases\Redis::getInstance($config['terminal_db']);
+        $config = Config::get('redis');
+        $this->useCache =  Redis::getInstance($config['terminal_db']);
         $this->prefix = 'lock_';
     }
 
@@ -73,7 +75,7 @@ class Lock
         ) {
             return true;
         }
-        $value = \Util::makeUuid();
+        $value = Util::makeUuid();
         if ($this->useCache->set(
             $key,
             $value,

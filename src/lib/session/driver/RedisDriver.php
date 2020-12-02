@@ -8,6 +8,8 @@ namespace Lethe\Lib\Session\Driver;
 
 namespace Lethe\Lib\Session\Driver;
 
+use Lethe\Lib\Config;
+
 class RedisDriver extends \SessionHandler
 {
     /** @var \Redis */
@@ -25,7 +27,7 @@ class RedisDriver extends \SessionHandler
 
     public function __construct($config = [])
     {
-        $redis_config = \Config::get('redis');
+        $redis_config = Config::get('redis');
         $this->config = array_merge($this->config, $config);
         $this->config['select'] = $redis_config['session_db'];
     }
