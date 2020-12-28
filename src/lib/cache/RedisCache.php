@@ -49,4 +49,62 @@ class RedisCache implements CacheInterface
     {
         return $this->handle->del($key);
     }
+
+    /**
+     * @param string $key
+     * @return int
+     */
+    public function lLen($key)
+    {
+        return $this->handle->lLen($key);
+    }
+
+    /**
+     * @param string $key
+     * @return mixed
+     */
+    public function rPop($key)
+    {
+        $data = $this->handle->rPop($key);
+        $data && $data = $this->decodeData($data);
+        return $data;
+    }
+
+    /**
+     * @param string $key
+     * @param array $data
+     * @return bool|int
+     */
+    public function lPush($key, $data)
+    {
+        return $this->handle->lPush($key, $this->encodeData($data));
+    }
+
+    /**
+     * 序列化数据
+     *
+     * @param array $data
+     *
+     * @return string
+     */
+    protected function encodeData($data)
+    {
+        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+            return json_encode($data, JSON_UNESCAPED_UNICODE);
+        } else {
+            return json_encode($data);
+        }
+    }
+
+    /**
+     * 反序列化数据
+     *
+     * @param string $data
+     *
+     * @return string
+     */
+    protected function decodeData($data)
+    {
+        return json_decode($data, true);
+    }
 }
