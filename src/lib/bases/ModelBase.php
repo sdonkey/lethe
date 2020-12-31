@@ -7,6 +7,7 @@ use Lethe\Lib\DB\QueryBuilder;
 
 class ModelBase extends Model
 {
+    const SINGLE_EXEC_MAX_NUM = 2500;
     public $timestamps = false;
     protected static $disableReadCache = false;
     protected $needCache = false;

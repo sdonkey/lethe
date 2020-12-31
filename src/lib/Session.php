@@ -328,4 +328,21 @@ class Session
         session_write_close();
         self::$init = false;
     }
+
+    /**
+     * 切换会话
+     * @param $sid
+     * @return bool
+     */
+    public static function setup($sid)
+    {
+        if(empty($sid)){
+            return false;
+        }
+        self::pause();
+        $config = Config::get('session');
+        $config = array_merge($config,['id' => $sid]);
+        self::init($config);
+        return true;
+    }
 }

@@ -8,6 +8,7 @@ namespace Lethe\Lib;
  */
 use app\services\user\User as UserService;
 use app\services\system\Util as SysServiceUtil;
+use Lethe\Lib\Log;
 
 class Util
 {
@@ -314,7 +315,7 @@ class Util
             }
         } catch (\Exception $e) {
             $size = 0;
-            \Log::error(__METHOD__ . $e->getMessage(), [], 'dirSize');
+            Log::error(__METHOD__ . $e->getMessage(), [], 'dirSize');
         }
         $size = (int) $size * 1024;
         return $size;

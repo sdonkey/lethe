@@ -6,6 +6,7 @@
  */
 
 namespace Lethe\Lib\Bases;
+use Lethe\Lib\Log;
 
 class Error extends \Exception
 {
@@ -23,6 +24,6 @@ class Error extends \Exception
             'file' => $file,
             'line' => $line
         ];
-        \Log::error(json_encode($data), $data, 'error_sys');
+        Log::error(json_encode($data), $data, 'error_sys');
     }
 }

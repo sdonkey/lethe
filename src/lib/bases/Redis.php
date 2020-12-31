@@ -37,7 +37,10 @@ class Redis
         $redis = new \Redis();
         $redis->connect($config['host'], $config['port']);
         $redis->auth($config['auth']);
-        $redis->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
+        if(isset($config['opt_serializer']) && $config['opt_serializer'] == 1){
+            $redis->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
+        }
+
         $redis->select($select_db);
 
         return $redis;
