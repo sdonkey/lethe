@@ -1,4 +1,5 @@
 <?php
+namespace Lethe\Lib;
 /* **********************************************************
  *
  * @author: wangjianrong<wangjr129@163.com>

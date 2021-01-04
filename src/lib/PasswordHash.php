@@ -1,4 +1,5 @@
 <?php
+namespace Lethe\Lib;
 
 class PasswordHash
 {
