@@ -6,7 +6,7 @@ namespace Lethe\Lib\Hook;
  * Date: 2018/11/28
  * Time: 14:00
  */
-use Lethe\Lib\Log;
+
 class LogActions
 {
     public static function run($info)
@@ -17,11 +17,11 @@ class LogActions
     public static function logRequestInfo($info)
     {
         $message = 'params:'.$info;
-        Log::error($message, [], 'requestParams');
+        \Log::error($message, [], 'requestParams');
     }
 
     public static function dbInfo($info)
     {
-        Log::error($info, [], 'db');
+        \Log::error($info, [], 'db');
     }
 }

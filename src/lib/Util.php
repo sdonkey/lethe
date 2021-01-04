@@ -8,7 +8,6 @@ namespace Lethe\Lib;
  */
 use app\services\user\User as UserService;
 use app\services\system\Util as SysServiceUtil;
-use Lethe\Lib\Log;
 
 class Util
 {
@@ -315,7 +314,7 @@ class Util
             }
         } catch (\Exception $e) {
             $size = 0;
-            Log::error(__METHOD__ . $e->getMessage(), [], 'dirSize');
+            \Log::error(__METHOD__ . $e->getMessage(), [], 'dirSize');
         }
         $size = (int) $size * 1024;
         return $size;
@@ -360,7 +359,7 @@ class Util
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if (curl_errno($ch)) {
             //捕抓异常
-            Log::error($data_string, [], 'curl');
+            \Log::error($data_string, [], 'curl');
             throw new \app\exceptions\CmxException(\app\exceptions\code\App::CURL_REQUEST_FAIL);
         }
         curl_close($ch);//关闭
