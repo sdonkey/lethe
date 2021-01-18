@@ -48,7 +48,7 @@ class Job
         $key = self::getQueueName();
         $value = Queue::pop($key);
         if (!empty($value)) {
-            return $value[1];
+            return json_decode($value[1],true);
         }
     }
     /**
@@ -63,8 +63,7 @@ class Job
             'event' => $event,
             'data'  => $data
         ];
-
-        return Queue::push($key, $val);
+        return Queue::push($key, json_encode($val));
     }
     /**
      * @return string
